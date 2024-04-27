@@ -6,24 +6,119 @@
     <title>Sistema de Registro de Estudiantes</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-r from-cyan-500 to-blue-500">
-    <section class="flex flex-col justify-center items-center h-screen">
-            <div class="space-y-6">
-                <h1 class="text-4xl">Registro de Estudiantes</h1>
-                <div class="flex justify-center space-y-6 border-2 p-4 border-b bg-white rounded">
-                    <div class="flex flex-col w-64 space-y-4">
+<body class="bg-gradient-to-r from-cyan-500 to-blue-500 ">
+    <section id="student_registration" class="flex flex-col justify-center items-center h-screen">
+            <div class="flex flex-col items-center space-y-6">
+                <h1 class="text-4xl ">Registro de Estudiantes</h1>
+                <div class="flex justify-center space-y-6 border-2 p-4 border-b bg-white rounded w-96">
+                    <form class="flex flex-col w-64 space-y-4" onsubmit="return false">
                         <div class="flex flex-col space-y-2">
-                            <input type="text" placeholder="Nombre" class="border rounded-full bg-slate-100 px-8 py-1 text-sm">
-                            <input type="text" placeholder="Apellido" class="border rounded-full bg-slate-100 px-8 py-1 text-sm">
-                            <input type="text" placeholder="Cedula" class="border rounded-full bg-slate-100 px-8 py-1 text-sm">
-                            <input type="text" placeholder="Año de estudio" class="border rounded-full bg-slate-100 px-8 py-1 text-sm">
+                            <div class="flex">
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                </svg> 
+                                <input id="name_user" type="text" placeholder="Nombre" autocomplete="off" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                                  </svg>
+                                  
+                                <input id="last_name_user" type="text" autocomplete="off" placeholder="Apellido" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z" />
+                                  </svg>
+                                  
+                                <input id="identify_user" type="number" placeholder="Cedula" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                                  </svg>
+                                  
+                                <input id="course_year" type="text" autocomplete="off" placeholder="Año de estudio" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
+                            </div>
                         </div>
+                       
                         <div class="flex justify-center bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-52 m-auto">
-                            <button class="flex-1 font-semibold text-white">Enviar</button>
+                            <button id="submit_button" class="flex-1 font-semibold text-white">Enviar</button>
                         </div>
-                    </div>
+                        
+                    </form>
                 </div>
             </div>
+    </section id="student_filtering" class="flex flex-col justify-center items-center h-screen hidden">
+    <div class="flex flex-col items-center space-y-6">
+        <h1 class="text-4xl ">Registro de Estudiantes</h1>
+        <div class="flex justify-center space-y-6 border-2 p-4 border-b bg-white rounded w-96">
+            <form class="flex flex-col w-64 space-y-4" onsubmit="return false">
+    
+               
+                <div class="flex justify-center bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-52 m-auto">
+                    <button class="flex-1 font-semibold text-white">Enviar</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    <section>
+
     </section>
 </body>
+<script>
+    let users = []
+    let button = document.getElementById("submit_button")
+    button.addEventListener('click', submitButton)
+
+    function submitButton(){
+        let nameUser = document.getElementById("name_user").value
+        let lastNameUser = document.getElementById("last_name_user").value
+        let identifyUser = document.getElementById("identify_user").value
+        let courseYear = document.getElementById("course_year").value
+
+        if(nameUser == ""){
+        } else if(lastNameUser == ""){
+        } else if(identifyUser == ""){
+        } else if(courseYear == ""){
+        } else {
+            let user = {
+            name: nameUser,
+            lastName: lastNameUser,
+            identify: identifyUser,
+            course: courseYear
+        }
+        users.push(user)
+        if(localStorage.getItem('Users') == null){
+            localStorage.setItem('Users', JSON.stringify(users))
+        } else{
+            let listUsers = JSON.parse(localStorage.getItem('Users'))
+            let filterUser = listUsers.find((user) => {
+                return user.identify == identifyUser
+            })
+            if(filterUser == undefined){
+                listUsers.push(user)
+                localStorage.setItem('Users', JSON.stringify(listUsers))
+            } else{
+                return alert("Este usuario ya existe")
+            }
+            
+        }
+
+        let studentRegistration = document.getElementById("student_registration")
+        alert("Registrado correctamente")
+
+        studentRegistration.classList.add("hidden")
+
+        let studentFiltering = document.getElementById("student_filtering")
+        studentFiltering.classList.remove('hidden')
+        }
+
+        
+    }
+
+
+</script>
 </html>
