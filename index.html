@@ -46,19 +46,22 @@
                         <button id="submit_button" class="flex-1 font-semibold text-white">Enviar</button>
                     </div>                  
                 </form>
-                <div class="flex flex-start bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-52 m-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
-                      </svg> 
-                    <button class="flex-1 font-semibold text-white">Filtrado de Usuarios</button>
+                <div class="flex justify-end w-80">
+                    <div class="flex bg-slate-400 rounded-full px-2.5 py-1">
+                        <button id="switch_to_filtered" class="flex font-semibold text-white">Filtrado de Usuarios
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white mx-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>    
+                        </button>                  
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section id="student_filtering" class="flex-col justify-center items-center h-screen hidden">
+    <section id="student_filtering" class="flex flex-col justify-center items-center h-screen hidden">
         <div class="flex flex-col items-center space-y-6">
             <h1 class="text-4xl">Registro de Estudiantes</h1>
-            <div class="flex justify-center space-y-6 border-2 p-4 border-b bg-white rounded w-96">
+            <div class="flex flex-col items-center space-y-6 border-2 p-4 border-b bg-white rounded w-96">
                 <form class="flex flex-col w-64 space-y-4" onsubmit="return false">
                     <div class="flex">
                                     
@@ -77,8 +80,16 @@
                     <div class="flex justify-center bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-52 m-auto">
                         <button id="search_button" class="flex-1 font-semibold text-white">Buscar</button>
                     </div>
-        
                 </form>
+                <div class="flex justify-start w-80">
+                    <div class="flex bg-slate-400 rounded-full px-2.5 py-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white mx-2 text-center">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                          </svg>  
+                        <button id="switch_to_register" class="flex font-semibold text-white">Registrar usuarios   
+                        </button>                  
+                    </div>
+                </div>
             </div>
             <div id="write_users" class="flex flex-col justify-center space-y-6 border-2 p-4 border-b bg-white rounded h-auto w-96">
                 <p class="font-bold">Nombre: <span id="name" class="font-normal"></span></p>
@@ -86,7 +97,6 @@
                 <p class="font-bold">Cedula: <span id="identify" class="font-normal"></span></p>
                 <p class="font-bold">Año de estudio: <span id="course" class="font-normal"></span></p>
             </div>
-        </div>
         </div>
     </section>
 </body>
@@ -166,7 +176,29 @@
             courseUser.innerHTML = filterUser.course
 
         }
+
     }
 
+    let switchFilter = document.getElementById("switch_to_filtered")
+
+    switchFilter.addEventListener('click', switchToFiltered)
+
+    function switchToFiltered(){
+    let studentRegistration = document.getElementById("student_registration")
+    let studentFiltering = document.getElementById("student_filtering")
+    studentRegistration.classList.add('hidden')
+    studentFiltering.classList.remove('hidden')
+    }
+
+    let switchRegister = document.getElementById("switch_to_register")
+
+    switchRegister.addEventListener('click', switchToRegister)
+
+    function switchToRegister(){
+    let studentRegistration = document.getElementById("student_registration")
+    let studentFiltering = document.getElementById("student_filtering")
+    studentRegistration.classList.remove('hidden')
+    studentFiltering.classList.add('hidden')
+    }
 </script>
 </html>
