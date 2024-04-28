@@ -7,65 +7,88 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gradient-to-r from-cyan-500 to-blue-500 ">
-    <section id="student_registration" class="flex flex-col justify-center items-center h-screen">
-            <div class="flex flex-col items-center space-y-6">
-                <h1 class="text-4xl ">Registro de Estudiantes</h1>
-                <div class="flex justify-center space-y-6 border-2 p-4 border-b bg-white rounded w-96">
-                    <form class="flex flex-col w-64 space-y-4" onsubmit="return false">
-                        <div class="flex flex-col space-y-2">
-                            <div class="flex">
+    <section id="student_registration" class="flex flex-col justify-center items-center h-screen ">
+        <div class="flex flex-col items-center space-y-6">
+            <h1 class="text-4xl ">Registro de Estudiantes</h1>
+            <div class="flex flex-col items-center space-y-6 border-2 p-4 border-b bg-white rounded w-96">
+                <form class="flex flex-col w-64 space-y-4" onsubmit="return false">
+                    <div class="flex flex-col space-y-2">
+                        <div class="flex">
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            </svg> 
+                            <input id="name_user" type="text" placeholder="Nombre" autocomplete="off" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                                </svg>
                                 
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                </svg> 
-                                <input id="name_user" type="text" placeholder="Nombre" autocomplete="off" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
-                            </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
-                                  </svg>
-                                  
-                                <input id="last_name_user" type="text" autocomplete="off" placeholder="Apellido" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
-                            </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z" />
-                                  </svg>
-                                  
-                                <input id="identify_user" type="number" placeholder="Cedula" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
-                            </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
-                                  </svg>
-                                  
-                                <input id="course_year" type="text" autocomplete="off" placeholder="Año de estudio" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
-                            </div>
+                            <input id="last_name_user" type="text" autocomplete="off" placeholder="Apellido" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
                         </div>
-                       
-                        <div class="flex justify-center bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-52 m-auto">
-                            <button id="submit_button" class="flex-1 font-semibold text-white">Enviar</button>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z" />
+                                </svg>
+                                
+                            <input id="identify_user" type="number" placeholder="Cedula" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
                         </div>
-                        
-                    </form>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                                </svg>
+                                
+                            <input id="course_year" type="text" autocomplete="off" placeholder="Año de estudio" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-52 m-auto">
+                        <button id="submit_button" class="flex-1 font-semibold text-white">Enviar</button>
+                    </div>
+                                        
+                </form>
+                <div class="flex flex-start bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-52 m-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                      </svg> 
+                    <button class="flex-1 font-semibold text-white">Filtrado de Usuarios</button>
                 </div>
             </div>
-    </section id="student_filtering" class="flex flex-col justify-center items-center h-screen hidden">
-    <div class="flex flex-col items-center space-y-6">
-        <h1 class="text-4xl ">Registro de Estudiantes</h1>
-        <div class="flex justify-center space-y-6 border-2 p-4 border-b bg-white rounded w-96">
-            <form class="flex flex-col w-64 space-y-4" onsubmit="return false">
-    
-               
-                <div class="flex justify-center bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-52 m-auto">
-                    <button class="flex-1 font-semibold text-white">Enviar</button>
-                </div>
-                
-            </form>
         </div>
-    </div>
-    <section>
-
+    </section>
+    <section id="student_filtering" class="flex-col justify-center items-center h-screen hidden">
+        <div class="flex flex-col items-center space-y-6">
+            <h1 class="text-4xl ">Registro de Estudiantes</h1>
+            <div class="flex justify-center space-y-6 border-2 p-4 border-b bg-white rounded w-96">
+                <form class="flex flex-col w-64 space-y-4" onsubmit="return false">
+                    <div class="flex">
+                                    
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg> 
+                        <input id="name_user_search" type="text" placeholder="Nombre" autocomplete="off" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
+                    </div>  
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z" />
+                        </svg>
+                        
+                        <input id="identify_user_search" type="number" placeholder="Cedula" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
+                    </div>
+                    <div class="flex justify-center bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-52 m-auto">
+                        <button id="search_button" class="flex-1 font-semibold text-white">Buscar</button>
+                    </div>
+        
+                </form>
+            </div>
+            <div id="write_users" class="flex flex-col justify-center space-y-6 border-2 p-4 border-b bg-white rounded h-auto w-96">
+                <p class="font-bold">Nombre: <span id="name" class="font-normal"></span></p>
+                <p class="font-bold">Apellido: <span id="last_name" class="font-normal"></span></p>
+                <p class="font-bold">Cedula: <span id="identify" class="font-normal"></span></p>
+                <p class="font-bold">Año de estudio: <span id="course" class="font-normal"></span></p>
+            </div>
+        </div>
     </section>
 </body>
 <script>
@@ -118,7 +141,36 @@
 
         
     }
+    let filterButton = document.getElementById("search_button")
+    filterButton.addEventListener('click', searchButton)
 
+    function searchButton(){
+        let nameUserSearch = document.getElementById("name_user_search").value
+        let identifyUserSearch = document.getElementById("identify_user_search").value
+
+        let listUsers = JSON.parse(localStorage.getItem('Users'))
+        let filterUser = listUsers.find((user) => {
+            return user.identify == identifyUserSearch && user.name == nameUserSearch
+        })
+
+        if(filterUser == undefined){
+            return("Usuario no encontrado")
+        } else{
+            let nameUser = document.getElementById("name")
+            let lastNameUser = document.getElementById("last_name")
+            let identifyUser = document.getElementById("identify")
+            let courseUser = document.getElementById("course")
+
+            nameUser.innerHTML = filterUser.name
+            lastNameUser.innerHTML = filterUser.lastName
+            identifyUser.innerHTML = filterUser.identify
+            courseUser.innerHTML = filterUser.course
+
+        }
+
+
+
+    }
 
 </script>
 </html>
