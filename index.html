@@ -9,7 +9,7 @@
 <body id="page_theme" class="">
     <section id="student_registration" class="flex flex-col justify-center items-center h-screen ">
         <div class="flex flex-col items-center space-y-6">
-            <h1 class="text-4xl ">Registro de Estudiantes</h1>
+            <h1 id="main_title" class="text-4xl">Registro de Estudiantes</h1>
             <div class="flex flex-col items-center space-y-6 border-2 p-4 border-b bg-white rounded w-96">
                 <form class="flex flex-col w-64 space-y-4" onsubmit="return false">
                     <div class="flex flex-col space-y-2">
@@ -46,6 +46,7 @@
                         <button id="submit_button" class="flex-1 font-semibold text-white">Enviar</button>
                     </div>                  
                 </form>
+                
                 <div class="flex justify-end w-80">
                     <div class="flex bg-slate-400 rounded-full px-2.5 py-1">
                         <button id="switch_to_filtered" class="flex font-semibold text-white">Filtrado de Usuarios
@@ -56,11 +57,21 @@
                     </div>
                 </div>
             </div>
+            <div class="flex flex-col items-center space-y-6 border-2 p-4 border-b bg-white rounded w-96">
+                <h2 class="text-xl font-bold">Usuarios Registrados</h2>
+                <div id="registered-user-name" class="grid grid-cols-4">
+                    <span class="font-bold">Nombre</span> 
+                    <span class="font-bold">Apellido</span>
+                    <span class="font-bold">Cedula</span>
+                    <span class="font-bold">Año de estudio</span>
+                </div>
+            </div>
         </div>
+        
     </section>
     <section id="student_filtering" class="flex flex-col justify-center items-center h-screen hidden">
         <div class="flex flex-col items-center space-y-6">
-            <h1 class="text-4xl">Registro de Estudiantes</h1>
+            <h1 id="main_title_filtering" class="text-4xl">Registro de Estudiantes</h1>
             <div class="flex flex-col items-center space-y-6 border-2 p-4 border-b bg-white rounded w-96">
                 <form class="flex flex-col w-64 space-y-4" onsubmit="return false">
                     <div class="flex">
@@ -99,6 +110,9 @@
             </div>
         </div>
     </section>
+    <button id="change_mode" class="absolute bg-slate-300 left-0 top-0 m-10 w-10 h-5 rounded-full">
+        <div class="bg-white w-5 h-5 rounded-full"></div>
+    </button>
 </body>
 <script>
     let users = []
@@ -110,6 +124,7 @@
         let lastNameUser = document.getElementById("last_name_user").value
         let identifyUser = document.getElementById("identify_user").value
         let courseYear = document.getElementById("course_year").value
+
 
         if(nameUser == ""){
         } else if(lastNameUser == ""){
@@ -126,6 +141,7 @@
         if(localStorage.getItem('Users') == null){
             localStorage.setItem('Users', JSON.stringify(users))
         } else{
+            
             let listUsers = JSON.parse(localStorage.getItem('Users'))
             let filterUser = listUsers.find((user) => {
                 return user.identify == identifyUser
@@ -133,12 +149,32 @@
             if(filterUser == undefined){
                 listUsers.push(user)
                 localStorage.setItem('Users', JSON.stringify(listUsers))
+
+                let pName = document.createElement("p")
+                pName.innerHTML = nameUser
+                registeredUserName.appendChild(pName)
+
+                let pLastName = document.createElement("p")
+                pLastName.innerHTML = lastNameUser
+                registeredUserName.appendChild(pLastName)
+
+                let pIdentify = document.createElement("p")
+                pIdentify.innerHTML = identifyUser
+                registeredUserName.appendChild(pIdentify)
+
+                let pCourse = document.createElement("p")
+                pCourse.innerHTML = courseYear
+                registeredUserName.appendChild(pCourse)
+
+                
+
             } else{
                 return alert("Este usuario ya existe")
             }
             
         }
 
+        
         let studentRegistration = document.getElementById("student_registration")
         alert("Registrado correctamente")
 
@@ -146,6 +182,8 @@
 
         let studentFiltering = document.getElementById("student_filtering")
         studentFiltering.classList.remove('hidden')
+
+        
         }
 
         
@@ -201,10 +239,117 @@
     studentFiltering.classList.add('hidden')
     }
 
-    const pageTheme = documnent.getElementById("page_theme")
-    const lightMode = "bg-gradient-to-r from-cyan-500 to-blue-500"
-    const darkMode = "bg-gradient-to-r from-indigo-700 to-black"
+     // Funciones para cambiar el tema de la pagina
 
+    const mainTitleFiltering = document.getElementById('main_title_filtering')
+    const mainTitle = document.getElementById('main_title')
+    let textBlack = "text-black"
+    let textWhite = "text-white"
+    const pageTheme = document.getElementById("page_theme")
+    let lightMode = "bg-gradient-to-r from-cyan-500 to-blue-500"
+    let darkMode = "bg-gradient-to-r from-indigo-700 to-black"
+    darkMode = darkMode.split(" ")
+    lightMode = lightMode.split(" ")
+    console.log(lightMode)
+    lightMode.forEach((classL)=>{
+        pageTheme.classList.add(classL)
+    })
+    mainTitle.classList.add(textBlack)
+    mainTitleFiltering.classList.add(textBlack)
     const changeMode = document.getElementById("change_mode")
+    changeMode.addEventListener('click', selectMode)
+
+    function selectMode(){
+        console.log(pageTheme.classList)
+        if(pageTheme.classList[1] == lightMode[1]){
+            lightMode.forEach((classL)=>{
+                pageTheme.classList.remove(classL)
+            })
+            mainTitleFiltering.classList.remove(textBlack)
+            mainTitle.classList.remove(textBlack)
+            darkMode.forEach((classL)=>{
+                pageTheme.classList.add(classL)
+            })
+            mainTitleFiltering.classList.add(textWhite)
+            mainTitle.classList.add(textWhite)
+            localStorage.setItem("Theme", pageTheme.classList)
+            localStorage.setItem("textTheme", mainTitle.classList[1])
+        } else{
+            darkMode.forEach((classL)=>{
+                pageTheme.classList.remove(classL)
+            })
+            mainTitleFiltering.classList.remove(textWhite)
+            mainTitle.classList.remove(textWhite)
+            lightMode.forEach((classL)=>{
+                pageTheme.classList.add(classL)
+            })
+            mainTitleFiltering.classList.add(textBlack)
+            mainTitle.classList.add(textBlack)
+            console.log(mainTitle.classList[1])
+            console.log(mainTitle.classList)
+            localStorage.setItem("Theme", pageTheme.classList)
+            localStorage.setItem("textTheme", mainTitle.classList[1])
+        }
+    }
+
+    if(localStorage.getItem("Theme") == null){
+    } else {
+        console.log(mainTitle.classList[1])
+        pageTheme.classList.forEach((classL)=>{
+            pageTheme.classList.remove(classL)
+            if(pageTheme.classList[0] == 'from-cyan-500'){
+                pageTheme.classList.remove('from-cyan-500')
+            }
+            if(pageTheme.classList[0] == 'to-blue-500'){
+                pageTheme.classList.remove('to-blue-500')
+            }
+        })
+        mainTitleFiltering.classList.remove(mainTitleFiltering.classList[1])
+        mainTitle.classList.remove(mainTitle.classList[1])
+        let addClasses = localStorage.getItem("Theme").split(" ")
+        addClasses.forEach((classL)=>{
+            pageTheme.classList.add(classL)
+        })
+        mainTitle.classList.add(localStorage.getItem("textTheme"))
+        mainTitleFiltering.classList.add(localStorage.getItem("textTheme"))
+        
+    }
+
+    // Mostrar usuarios registrados
+
+    const registeredUserName = document.getElementById("registered-user-name")
+    const registeredUsers = document.getElementById("registered-users") 
+
+    if(localStorage.getItem("Users") == null){
+    } else {
+        let arrayUsers = JSON.parse(localStorage.getItem("Users"))
+        arrayUsers.forEach((user)=>{
+            
+            let pName = document.createElement("p")
+            pName.innerHTML = user.name
+            registeredUserName.appendChild(pName)
+        
+            let pLastName = document.createElement("p")
+            pLastName.innerHTML = user.lastName
+            registeredUserName.appendChild(pLastName)
+        
+            let pIdentify= document.createElement("p")
+            pIdentify.innerHTML = user.identify
+            registeredUserName.appendChild(pIdentify)
+
+            let pCourse = document.createElement("p")
+            pCourse.innerHTML = user.course
+            registeredUserName.appendChild(pCourse)
+
+        })
+        
+    }
+    
+
+    
+
+
+
+    
 </script>
 </html>
