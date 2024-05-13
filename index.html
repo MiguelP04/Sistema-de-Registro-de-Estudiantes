@@ -42,10 +42,14 @@
                             <input id="course_year" type="text" autocomplete="off" placeholder="Año de estudio" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
                         </div>
                     </div>
-                    <div class="flex justify-center bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-52 m-auto">
+                    <div class="flex bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-52 m-auto">
                         <button id="submit_button" class="flex-1 font-semibold text-white">Enviar</button>
                     </div>                  
                 </form>
+
+                <button id="show-users" class="bg-gradient-to-r from-cyan-500 to-blue-500 py-1 px-4 rounded-full text-white ">Mostrar Usuarios</button>
+
+                
                 
                 <div class="flex justify-end w-80">
                     <div class="flex bg-slate-400 rounded-full px-2.5 py-1">
@@ -56,16 +60,9 @@
                         </button>                  
                     </div>
                 </div>
+
             </div>
-            <div class="flex flex-col items-center space-y-6 border-2 p-4 border-b bg-white rounded w-96">
-                <h2 class="text-xl font-bold">Usuarios Registrados</h2>
-                <div id="registered-user-name" class="grid grid-cols-4">
-                    <span class="font-bold">Nombre</span> 
-                    <span class="font-bold">Apellido</span>
-                    <span class="font-bold">Cedula</span>
-                    <span class="font-bold">Año de estudio</span>
-                </div>
-            </div>
+            
         </div>
         
     </section>
@@ -113,6 +110,27 @@
     <button id="change_mode" class="absolute bg-slate-300 left-0 top-0 m-10 w-10 h-5 rounded-full">
         <div class="bg-white w-5 h-5 rounded-full"></div>
     </button>
+
+    <dialog open class="top-0 h-screen w-screen bg-black/75">
+        <div class="flex justify-center items-center h-screen m-auto">
+            <div class="w-56 bg-white mr-64">
+                <div class="flex flex-col items-center space-y-6 border-2 p-4 border-b bg-white rounded w-max border-none   ">
+                    <h2 class="text-xl font-bold">Usuarios Registrados</h2>
+                    <div id="registered-user-name" class="grid grid-cols-4">
+                        <span class="font-bold">Nombre</span> 
+                        <span class="font-bold">Apellido</span>
+                        <span class="font-bold">Cedula</span>
+                        <span class="font-bold">Año de estudio</span>
+                    </div>
+                </div>
+                <form method="dialog" class="w-56">
+                    
+                        <button class="w-56 mr-64">Aceptar</button>
+                   
+                </form>
+            </div>
+        </div>
+    </dialog>
 </body>
 <script>
     let users = []
@@ -173,10 +191,13 @@
             }
             
         }
-
+        
+            alert("Registrado correctamente");
+      
+        
         
         let studentRegistration = document.getElementById("student_registration")
-        alert("Registrado correctamente")
+        
 
         studentRegistration.classList.add("hidden")
 
@@ -318,9 +339,28 @@
     // Mostrar usuarios registrados
 
     const registeredUserName = document.getElementById("registered-user-name")
-    const registeredUsers = document.getElementById("registered-users") 
 
     if(localStorage.getItem("Users") == null){
+        let nameUser = document.getElementById("name_user").value
+        let lastNameUser = document.getElementById("last_name_user").value
+        let identifyUser = document.getElementById("identify_user").value
+        let courseYear = document.getElementById("course_year").value
+        
+        let pName = document.createElement("p")
+            pName.innerHTML = nameUser
+            registeredUserName.appendChild(pName)
+        
+            let pLastName = document.createElement("p")
+            pLastName.innerHTML = lastNameUser
+            registeredUserName.appendChild(pLastName)
+        
+            let pIdentify= document.createElement("p")
+            pIdentify.innerHTML = identifyUser
+            registeredUserName.appendChild(pIdentify)
+
+            let pCourse = document.createElement("p")
+            pCourse.innerHTML = courseYear
+            registeredUserName.appendChild(pCourse)
     } else {
         let arrayUsers = JSON.parse(localStorage.getItem("Users"))
         arrayUsers.forEach((user)=>{
@@ -344,12 +384,6 @@
         })
         
     }
-    
-
-    
-
-
-
     
 </script>
 </html>
