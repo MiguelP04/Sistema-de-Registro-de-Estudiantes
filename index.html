@@ -42,12 +42,12 @@
                             <input id="course_year" type="text" autocomplete="off" placeholder="Año de estudio" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
                         </div>
                     </div>
-                    <div class="flex bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-52 m-auto">
+                    <div class="flex bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 rounded-full w-52 m-auto">
                         <button id="submit_button" class="flex-1 font-semibold text-white">Enviar</button>
                     </div>                  
                 </form>
 
-                <button id="show-users" class="bg-gradient-to-r from-cyan-500 to-blue-500 py-1 px-4 rounded-full text-white ">Mostrar Usuarios</button>
+                <button id="button-show-users" class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 py-1 px-4 rounded-full text-white font-bold">Mostrar Usuarios</button>
 
                 
                 
@@ -76,16 +76,9 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                         </svg> 
-                        <input id="name_user_search" type="text" placeholder="Nombre" autocomplete="off" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
+                        <input id="name_identify_user_search" type="text" placeholder="Nombre o Cedula" autocomplete="off" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
                     </div>  
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 absolute mt-0.5 ml-2 text-slate-400">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z" />
-                        </svg>
-                        
-                        <input id="identify_user_search" type="number" placeholder="Cedula" required="true" class="border rounded-full bg-slate-100 px-10 py-1 text-sm">
-                    </div>
-                    <div class="flex justify-center bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-52 m-auto">
+                    <div class="flex justify-center bg-gradient-to-r from-cyan-400 to-blue-400 hover:from-cyan-500 hover:to-blue-500 rounded-full w-52 m-auto">
                         <button id="search_button" class="flex-1 font-semibold text-white">Buscar</button>
                     </div>
                 </form>
@@ -99,36 +92,41 @@
                     </div>
                 </div>
             </div>
-            <div id="write_users" class="flex flex-col justify-center space-y-6 border-2 p-4 border-b bg-white rounded h-auto w-96">
-                <p class="font-bold">Nombre: <span id="name" class="font-normal"></span></p>
-                <p class="font-bold">Apellido: <span id="last_name" class="font-normal"></span></p>
-                <p class="font-bold">Cedula: <span id="identify" class="font-normal"></span></p>
-                <p class="font-bold">Año de estudio: <span id="course" class="font-normal"></span></p>
-            </div>
+            
         </div>
     </section>
     <button id="change_mode" class="absolute bg-slate-300 left-0 top-0 m-10 w-10 h-5 rounded-full">
-        <div class="bg-white w-5 h-5 rounded-full"></div>
+        <div id="circle-move" class="bg-white w-5 h-5 rounded-full"></div>
     </button>
 
-    <dialog open class="top-0 h-screen w-screen bg-black/75">
-        <div class="flex justify-center items-center h-screen m-auto">
-            <div class="w-56 bg-white mr-64">
+    <dialog id="window-show-users" class="bg-black">
                 <div class="flex flex-col items-center space-y-6 border-2 p-4 border-b bg-white rounded w-max border-none   ">
                     <h2 class="text-xl font-bold">Usuarios Registrados</h2>
-                    <div id="registered-user-name" class="grid grid-cols-4">
+                    <div id="registered-user-name" class="grid grid-cols-4 text-center">
                         <span class="font-bold">Nombre</span> 
                         <span class="font-bold">Apellido</span>
                         <span class="font-bold">Cedula</span>
                         <span class="font-bold">Año de estudio</span>
                     </div>
-                </div>
-                <form method="dialog" class="w-56">
+                    <form method="dialog" class="text-center">
                     
-                        <button class="w-56 mr-64">Aceptar</button>
-                   
-                </form>
+                        <button id="button-remove-show-users" class="font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 w-48 rounded-full ">Aceptar</button>
+                    </form>  
             </div>
+    </dialog>
+    <dialog id="window-show-users-filtered" class="bg-black">
+        <div class="flex flex-col items-center space-y-6 border-2 p-4 border-b bg-white rounded w-max border-none   ">
+            <h2 class="text-xl font-bold">Usuarios Filtrados</h2>
+            <div id="filtered-user-name" class="grid grid-cols-4 text-center">
+                <span class="font-bold">Nombre</span> 
+                <span class="font-bold">Apellido</span>
+                <span class="font-bold">Cedula</span>
+                <span class="font-bold">Año de estudio</span>
+            </div>
+            <form method="dialog" class="text-center">
+            
+                <button id="button-remove-show-users" class="font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 w-48 rounded-full ">Aceptar</button>
+            </form>  
         </div>
     </dialog>
 </body>
@@ -213,26 +211,46 @@
     filterButton.addEventListener('click', searchButton)
 
     function searchButton(){
-        let nameUserSearch = document.getElementById("name_user_search").value
-        let identifyUserSearch = document.getElementById("identify_user_search").value
+        let nameIdentifyUserSearch = document.getElementById("name_identify_user_search").value
 
         let listUsers = JSON.parse(localStorage.getItem('Users'))
-        let filterUser = listUsers.find((user) => {
-            return user.identify == identifyUserSearch && user.name == nameUserSearch
+        let filterUsers = listUsers.filter((user) => {
+            return user.identify == nameIdentifyUserSearch || user.name == nameIdentifyUserSearch
         })
 
-        if(filterUser == undefined){
+        if(filterUsers[0] == undefined){
             return alert("Usuario no encontrado")
         } else{
-            let nameUser = document.getElementById("name")
-            let lastNameUser = document.getElementById("last_name")
-            let identifyUser = document.getElementById("identify")
-            let courseUser = document.getElementById("course")
+            const windowShowUsersFiltered = document.getElementById("window-show-users-filtered")
+            windowShowUsersFiltered.showModal()
 
-            nameUser.innerHTML = filterUser.name
-            lastNameUser.innerHTML = filterUser.lastName
-            identifyUser.innerHTML = filterUser.identify
-            courseUser.innerHTML = filterUser.course
+            const filteredUserName = document.getElementById("filtered-user-name")
+            
+            const allP = document.querySelectorAll("#filtered-user-name p");
+            for(i = 0; i < allP.length; i++){
+                allP[i].remove()
+                console.log(allP[i])
+                console.log("hola")
+            }
+    
+
+            filterUsers.map((users)=>{
+                let pName = document.createElement("p")
+                pName.innerHTML = users.name
+                filteredUserName.appendChild(pName)
+            
+                let pLastName = document.createElement("p")
+                pLastName.innerHTML = users.lastName
+                filteredUserName.appendChild(pLastName)
+            
+                let pIdentify= document.createElement("p")
+                pIdentify.innerHTML = users.identify
+                filteredUserName.appendChild(pIdentify)
+
+                let pCourse = document.createElement("p")
+                pCourse.innerHTML = users.course
+                filteredUserName.appendChild(pCourse)
+            })
 
         }
 
@@ -271,18 +289,21 @@
     let darkMode = "bg-gradient-to-r from-indigo-700 to-black"
     darkMode = darkMode.split(" ")
     lightMode = lightMode.split(" ")
-    console.log(lightMode)
     lightMode.forEach((classL)=>{
         pageTheme.classList.add(classL)
     })
     mainTitle.classList.add(textBlack)
     mainTitleFiltering.classList.add(textBlack)
     const changeMode = document.getElementById("change_mode")
+    const circleMove = document.getElementById("circle-move")
     changeMode.addEventListener('click', selectMode)
 
     function selectMode(){
-        console.log(pageTheme.classList)
+        
         if(pageTheme.classList[1] == lightMode[1]){
+            circleMove.classList.add("translate-x-5")
+            localStorage.setItem("circle","translate-x-5")
+            console.log(localStorage.getItem("circle"))
             lightMode.forEach((classL)=>{
                 pageTheme.classList.remove(classL)
             })
@@ -296,6 +317,12 @@
             localStorage.setItem("Theme", pageTheme.classList)
             localStorage.setItem("textTheme", mainTitle.classList[1])
         } else{
+            circleMove.classList.remove("translate-x-5")
+           let circle = localStorage.getItem("circle")
+           circle = localStorage.setItem("circle", "")
+           console.log(localStorage.getItem("circle"))
+
+
             darkMode.forEach((classL)=>{
                 pageTheme.classList.remove(classL)
             })
@@ -306,16 +333,15 @@
             })
             mainTitleFiltering.classList.add(textBlack)
             mainTitle.classList.add(textBlack)
-            console.log(mainTitle.classList[1])
-            console.log(mainTitle.classList)
             localStorage.setItem("Theme", pageTheme.classList)
             localStorage.setItem("textTheme", mainTitle.classList[1])
         }
     }
-
+if(localStorage.getItem("circle") == "translate-x-5"){
+    circleMove.classList.add("translate-x-5")
+}
     if(localStorage.getItem("Theme") == null){
     } else {
-        console.log(mainTitle.classList[1])
         pageTheme.classList.forEach((classL)=>{
             pageTheme.classList.remove(classL)
             if(pageTheme.classList[0] == 'from-cyan-500'){
@@ -337,6 +363,15 @@
     }
 
     // Mostrar usuarios registrados
+
+    const buttonShowUsers = document.getElementById("button-show-users")
+    const windowShowUsers = document.getElementById("window-show-users")
+    buttonShowUsers.addEventListener('click', ()=>{
+        windowShowUsers.showModal()
+    })
+    
+    
+
 
     const registeredUserName = document.getElementById("registered-user-name")
 
